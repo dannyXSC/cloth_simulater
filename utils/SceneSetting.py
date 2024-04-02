@@ -7,7 +7,7 @@ ti.init(arch=ti.gpu)
 
 
 # numbers of particles per row
-n = 64
+n = 16
 # total numbers of particles
 N = n * n
 # total mass
@@ -80,8 +80,8 @@ else:
 
 @ti.kernel
 def initVertices():
-    # random_offset = ti.Vector([ti.random() - 0.5, ti.random() - 0.5])
-    random_offset = ti.Vector([0, 0])
+    random_offset = ti.Vector([ti.random() - 0.5, ti.random() - 0.5])
+    # random_offset = ti.Vector([0, 0])
 
     for i in range(n):
         for j in range(n):
@@ -142,12 +142,12 @@ def getScene() -> ti.ui.Scene:
     scene.point_light(pos=(500, 1000, 500), color=(1, 1, 1))
     scene.ambient_light((0.5, 0.5, 0.5))
     scene.particles(ball_center, radius=ball_radius, color=(0.5, 0.42, 0.8))
-    scene.mesh(
-        floor_vertices,
-        indices=floor_indices,
-        per_vertex_color=floor_colors,
-        two_sided=True,
-    )
+    # scene.mesh(
+    #     floor_vertices,
+    #     indices=floor_indices,
+    #     per_vertex_color=floor_colors,
+    #     two_sided=True,
+    # )
     return scene
 
 

@@ -216,8 +216,8 @@ def simpleCollision():
             # 如果速度朝向圆心，那么给予反向速度
             # v[i] -= 2 * min(dot_result, 0) * normal
             v[i] -= min(dot_result, 0) * normal
-        if x[i][1] <= epsilon_distance:
-            v[i][1] = 0
+        # if x[i][1] <= epsilon_distance:
+        #     v[i][1] = 0
 
 
 @ti.kernel
